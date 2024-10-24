@@ -11,20 +11,28 @@
             background-size: cover;
             background-attachment: fixed;
             margin: 0;
-            color: #808080;
+            color: #f0f8ff;
             padding: 20px;
         }
         h1 {
             text-align: center;
             color: pink;
-            background-color: 0;
             margin-bottom: 30px;
             padding: 10px;
             border-radius: 10px;
+	    font-family: 'Montserrat', serif; 
+            font-size: 50px;
+        }
+        .introduction {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
         }
         .category {
             margin-bottom: 20px;
-            background-color: 0;
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -33,17 +41,19 @@
             text-align: center;
             color: white;
             margin-bottom: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
             cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
         }
         .menu-container {
-            display: none; /* Initially hidden */
+            display: none;
             flex-wrap: wrap;
             justify-content: space-around;
         }
         .menu-item {
             margin: 15px;
             padding: 10px;
-            background-color: 0;
             border: 1px solid #ddd;
             border-radius: 10px;
             width: calc(30% - 30px);
@@ -82,7 +92,7 @@
         }
         .about {
             position: absolute;
-            color: orange;
+            color: black;
             top: 20px;
             right: 20px;
             border-radius: 10px;
@@ -115,13 +125,17 @@
     <img src="https://media.istockphoto.com/id/641659432/vector/man-with-beard-and-mustache.jpg?s=2048x2048&w=is&k=20&c=SGBmtcYG-rDFBULZSPTc2SYmlGHL1-xzIYauocc9DqY=" alt="Barber Shop Logo" class="logo">
 
     <h1 style="font-size: 50px;">GENTLEMAN'S RETREAT</h1>
+
+    <div class="introduction">
+        <p>The ultimate sanctuary for modern men seeking style and relaxation. Here, we blend expert grooming services with a tranquil spa atmosphere, offering everything from precision haircuts to revitalizing treatments. Whether you're looking for a sharp new look or a moment of escape, our skilled barbers and therapists are dedicated to helping you feel your best. Step into a world where grooming meets luxury, and let us elevate your self-care experience.</p>
+    </div>
+
     <div class="about">
         <p><strong>About</strong></p>
         <div class="names">
             <p><strong>Submitted by:</strong><br> Patrick Jason Rivera,<br> Alleluiah Reyes,<br> Aldrin Pagba</p>
         </div>
     </div>
-	<h2 style="text-align: center;">Looking great has never been this easy!</h2>
     
     <!-- Haircuts Category -->
     <div class="category">
@@ -166,7 +180,7 @@
             </div>
         </div>
     </div>
-	
+    
     <!-- Massage Category -->
     <div class="category">
         <h2 onclick="toggleMenu('massage')">Massage</h2>
@@ -176,8 +190,8 @@
                 <p class="description">Massage rate starts at</p>
                 <p class="price">Php500.00</p>
             </div>
-		</div>
-	</div>	
+        </div>
+    </div>    
 
     <!-- Contact Section -->
     <div id="contact">
@@ -189,6 +203,13 @@
 
     <script>
         function toggleMenu(category) {
+            const allMenus = document.querySelectorAll('.menu-container');
+            allMenus.forEach(menu => {
+                if (menu.id !== category) {
+                    menu.style.display = 'none';
+                }
+            });
+
             const menuContainer = document.getElementById(category);
             menuContainer.style.display = (menuContainer.style.display === 'flex') ? 'none' : 'flex';
         }
@@ -198,4 +219,4 @@
         <p>Disclaimer: The information and images presented are fictional and intended solely for educational purposes in the context of web design.</p>
     </footer>
 </body>
-</html> 
+</html>
